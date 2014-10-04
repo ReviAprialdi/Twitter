@@ -1,0 +1,17 @@
+<ul>
+  <% @twitts.each do |twitt| %>
+    <li><%= twitt.twitt  %> by <%= link_to twitt.user.email, twitt_path(twitt.id)%></li>  
+  <%end%>
+</ul>
+
+<%= form_for :twitt do |f| %>
+  <p>
+    <%= f.label :twitt,"New Twitt"%>
+  </p>
+  <p>
+    <%= f.text_area :twitt%>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<%end%>

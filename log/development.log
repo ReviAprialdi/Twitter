@@ -4,3 +4,3265 @@ Started GET "/" for 125.163.109.141 at 2014-10-02 04:27:40 +0000
 Processing by Rails::WelcomeController#index as HTML
   Rendered /home/action/.gem/ruby/2.1.1/gems/railties-4.1.0/lib/rails/templates/rails/welcome/index.html.erb (2.0ms)
 Completed 200 OK in 28ms (Views: 8.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-04 12:27:06 +0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /var/lib/gems/1.9.1/gems/railties-4.1.0/lib/rails/templates/rails/welcome/index.html.erb (22.8ms)
+Completed 200 OK in 70ms (Views: 52.6ms | ActiveRecord: 0.0ms)
+  [1m[36m (139.4ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.3ms)[0m  select sqlite_version(*)
+  [1m[36m (132.0ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.5ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateTwitts (20141004052836)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "twitts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "twitt" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20141004052836"]]
+  [1m[35m (141.6ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to DeviseCreateUsers (20141004054612)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.2ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20141004054612"]]
+  [1m[36m (140.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-04 13:04:49 +0700
+
+NoMethodError (undefined method `devise' for #<Class:0x00000003cb09f0>):
+  app/models/user.rb:4:in `<class:User>'
+  app/models/user.rb:1:in `<top (required)>'
+  config/routes.rb:2:in `block in <top (required)>'
+  config/routes.rb:1:in `<top (required)>'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-04 13:05:35 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+ActionController::RoutingError (No route matches [GET] "/"):
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/methodoverride.rb:21:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/lock.rb:17:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/lock.rb:17:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/content_length.rb:14:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (31.9ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (44.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-04 13:11:42 +0700
+
+NoMethodError (undefined method `devise' for #<Class:0x00000003ab5e20>):
+  app/models/user.rb:4:in `<class:User>'
+  app/models/user.rb:1:in `<top (required)>'
+  config/routes.rb:2:in `block in <top (required)>'
+  config/routes.rb:1:in `<top (required)>'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-04 13:12:50 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /var/lib/gems/1.9.1/gems/railties-4.1.0/lib/rails/templates/rails/welcome/index.html.erb (2.0ms)
+Completed 200 OK in 51ms (Views: 33.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/Twitter" for 127.0.0.1 at 2014-10-04 13:14:31 +0700
+
+ActionController::RoutingError (No route matches [GET] "/Twitter"):
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/methodoverride.rb:21:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/lock.rb:17:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/lock.rb:17:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/content_length.rb:14:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.8ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (34.5ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (56.2ms)
+
+
+Started GET "/Twitter/index" for 127.0.0.1 at 2014-10-04 13:14:46 +0700
+
+ActionController::RoutingError (No route matches [GET] "/Twitter/index"):
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/methodoverride.rb:21:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/lock.rb:17:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/lock.rb:17:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/content_length.rb:14:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.7ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (22.7ms)
+
+
+Started GET "/Twitter/tiwitts_path" for 127.0.0.1 at 2014-10-04 13:15:17 +0700
+
+ActionController::RoutingError (No route matches [GET] "/Twitter/tiwitts_path"):
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/methodoverride.rb:21:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/lock.rb:17:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/lock.rb:17:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/content_length.rb:14:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.9ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (18.4ms)
+
+
+Started GET "/Twitter/twitts_path" for 127.0.0.1 at 2014-10-04 13:15:28 +0700
+
+ActionController::RoutingError (No route matches [GET] "/Twitter/twitts_path"):
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/methodoverride.rb:21:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/lock.rb:17:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/lock.rb:17:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/content_length.rb:14:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.4ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.1ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (19.6ms)
+
+
+Started GET "/Twitter/twitts_path" for 127.0.0.1 at 2014-10-04 13:15:49 +0700
+
+ActionController::RoutingError (No route matches [GET] "/Twitter/twitts_path"):
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/methodoverride.rb:21:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/lock.rb:17:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/lock.rb:17:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/content_length.rb:14:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.9ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.1ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (20.2ms)
+
+
+Started GET "/twitts_path" for 127.0.0.1 at 2014-10-04 13:16:56 +0700
+
+ActionController::RoutingError (No route matches [GET] "/twitts_path"):
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/methodoverride.rb:21:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/lock.rb:17:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/lock.rb:17:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/content_length.rb:14:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (30.3ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (46.4ms)
+
+
+Started GET "/twitts" for 127.0.0.1 at 2014-10-04 13:17:11 +0700
+Processing by TwittsController#index as HTML
+Completed 500 Internal Server Error in 7ms
+
+ActionView::MissingTemplate (Missing template twitts/index, application/index with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee]}. Searched in:
+  * "/home/revi/Twitter/app/views"
+  * "/var/lib/gems/1.9.1/gems/devise-3.3.0/app/views"
+):
+  actionview (4.1.0) lib/action_view/path_set.rb:46:in `find'
+  actionview (4.1.0) lib/action_view/lookup_context.rb:124:in `find'
+  actionview (4.1.0) lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  actionview (4.1.0) lib/action_view/renderer/template_renderer.rb:41:in `determine_template'
+  actionview (4.1.0) lib/action_view/renderer/template_renderer.rb:8:in `render'
+  actionview (4.1.0) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.1.0) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.1.0) lib/action_view/rendering.rb:99:in `_render_template'
+  actionpack (4.1.0) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.1.0) lib/action_view/rendering.rb:82:in `render_to_body'
+  actionpack (4.1.0) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.1.0) lib/action_controller/metal/renderers.rb:32:in `render_to_body'
+  actionpack (4.1.0) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.1.0) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.1.0) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.1.0) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /usr/lib/ruby/1.9.1/benchmark.rb:295:in `realtime'
+  activesupport (4.1.0) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.1.0) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.1.0) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.1.0) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.1.0) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.1.0) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.1.0) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.1.0) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.1.0) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.1.0) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:113:in `call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:113:in `call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:229:in `call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:166:in `call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:166:in `call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:166:in `call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:86:in `call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.0) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.1.0) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.0) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.0) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.1.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.1.0) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.1.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.0) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.1.0) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.1.0) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.1.0) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:676:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `catch'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/etag.rb:23:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/conditionalget.rb:25:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/head.rb:11:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/session/abstract/id.rb:225:in `context'
+  /usr/lib/ruby/vendor_ruby/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.0) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/methodoverride.rb:21:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/lock.rb:17:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/lock.rb:17:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/content_length.rb:14:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout (0.5ms)
+
+
+Started GET "/twitts" for 127.0.0.1 at 2014-10-04 13:19:34 +0700
+Processing by TwittsController#index as HTML
+  Rendered twitts/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 513ms (Views: 512.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-04 13:19:34 +0700
+
+
+Started GET "/assets/twitts.css?body=1" for 127.0.0.1 at 2014-10-04 13:19:34 +0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-04 13:19:34 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-04 13:19:34 +0700
+
+
+Started GET "/assets/twitts.js?body=1" for 127.0.0.1 at 2014-10-04 13:19:34 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-04 13:19:34 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-04 13:19:34 +0700
+
+
+Started GET "/twitts" for 127.0.0.1 at 2014-10-04 13:24:13 +0700
+Processing by TwittsController#index as HTML
+  Rendered twitts/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 32ms (Views: 29.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/twitts.css?body=1" for 127.0.0.1 at 2014-10-04 13:24:13 +0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-04 13:24:13 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-04 13:24:13 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-04 13:24:13 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-04 13:24:13 +0700
+
+
+Started GET "/assets/twitts.js?body=1" for 127.0.0.1 at 2014-10-04 13:24:13 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-04 13:24:13 +0700
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2014-10-04 13:31:30 +0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered /var/lib/gems/1.9.1/gems/devise-3.3.0/app/views/devise/shared/_links.erb (1.3ms)
+  Rendered /var/lib/gems/1.9.1/gems/devise-3.3.0/app/views/devise/sessions/new.html.erb within layouts/application (44.5ms)
+Completed 200 OK in 91ms (Views: 68.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-04 13:31:30 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-04 13:31:30 +0700
+
+
+Started GET "/assets/twitts.css?body=1" for 127.0.0.1 at 2014-10-04 13:31:30 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-04 13:31:30 +0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-04 13:31:30 +0700
+
+
+Started GET "/assets/twitts.js?body=1" for 127.0.0.1 at 2014-10-04 13:31:30 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-04 13:31:30 +0700
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2014-10-04 13:38:48 +0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oGQUS2htaZ2DX1/oHDn56iWQD8aibdY08w9rU4SAQms=", "user"=>{"email"=>"", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+Completed 401 Unauthorized in 2ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oGQUS2htaZ2DX1/oHDn56iWQD8aibdY08w9rU4SAQms=", "user"=>{"email"=>"", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendered /var/lib/gems/1.9.1/gems/devise-3.3.0/app/views/devise/shared/_links.erb (0.4ms)
+  Rendered /var/lib/gems/1.9.1/gems/devise-3.3.0/app/views/devise/sessions/new.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 84ms (Views: 82.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-04 13:38:49 +0700
+
+
+Started GET "/assets/twitts.css?body=1" for 127.0.0.1 at 2014-10-04 13:38:49 +0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-04 13:38:49 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-04 13:38:49 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-04 13:38:49 +0700
+
+
+Started GET "/assets/twitts.js?body=1" for 127.0.0.1 at 2014-10-04 13:38:49 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-04 13:38:49 +0700
+
+
+Started GET "/twitts" for 127.0.0.1 at 2014-10-04 13:39:16 +0700
+Processing by TwittsController#index as HTML
+  Rendered twitts/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 33ms (Views: 31.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-04 13:39:16 +0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-04 13:39:16 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-04 13:39:16 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-04 13:39:16 +0700
+
+
+Started GET "/assets/twitts.js?body=1" for 127.0.0.1 at 2014-10-04 13:39:16 +0700
+
+
+Started GET "/assets/twitts.css?body=1" for 127.0.0.1 at 2014-10-04 13:39:16 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-04 13:39:16 +0700
+
+
+Started GET "/assets/twitts.css?body=1" for 127.0.0.1 at 2014-10-04 13:39:25 +0700
+
+
+Started GET "/assets/twitts.js?body=1" for 127.0.0.1 at 2014-10-04 13:39:25 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-04 13:39:25 +0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-04 13:39:25 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-04 13:39:25 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-04 13:39:25 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-04 13:39:25 +0700
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2014-10-04 13:39:27 +0700
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered /var/lib/gems/1.9.1/gems/devise-3.3.0/app/views/devise/shared/_links.erb (0.5ms)
+  Rendered /var/lib/gems/1.9.1/gems/devise-3.3.0/app/views/devise/registrations/new.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 35ms (Views: 33.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-10-04 13:39:45 +0700
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oGQUS2htaZ2DX1/oHDn56iWQD8aibdY08w9rU4SAQms=", "user"=>{"email"=>"njbj@yahoo.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'njbj@yahoo.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  Rendered /var/lib/gems/1.9.1/gems/devise-3.3.0/app/views/devise/shared/_links.erb (0.2ms)
+  Rendered /var/lib/gems/1.9.1/gems/devise-3.3.0/app/views/devise/registrations/new.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 156ms (Views: 27.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-04 13:39:45 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-04 13:39:45 +0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-04 13:39:45 +0700
+
+
+Started GET "/assets/twitts.js?body=1" for 127.0.0.1 at 2014-10-04 13:39:45 +0700
+
+
+Started GET "/assets/twitts.css?body=1" for 127.0.0.1 at 2014-10-04 13:39:45 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-04 13:39:45 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-04 13:39:45 +0700
+
+
+Started POST "/users" for 127.0.0.1 at 2014-10-04 13:40:01 +0700
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oGQUS2htaZ2DX1/oHDn56iWQD8aibdY08w9rU4SAQms=", "user"=>{"email"=>"njbj@yahoo.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'njbj@yahoo.com' LIMIT 1
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "encrypted_password", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", "2014-10-04 06:40:01.864590"], ["email", "njbj@yahoo.com"], ["encrypted_password", "$2a$10$jo79HS4Y/q8DG1bpdkvwZeNPj7OZaKuZkf/3z8Dn4lT/caObL6UtG"], ["updated_at", "2014-10-04 06:40:01.864590"]]
+  [1m[35m (139.9ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+Binary data inserted for `string` type on column `current_sign_in_ip`
+Binary data inserted for `string` type on column `last_sign_in_ip`
+  [1m[35mSQL (0.5ms)[0m  UPDATE "users" SET "current_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_at" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = 1  [["current_sign_in_at", "2014-10-04 06:40:02.012238"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_at", "2014-10-04 06:40:02.012238"], ["last_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2014-10-04 06:40:02.014763"]]
+  [1m[36m (169.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 418ms (ActiveRecord: 311.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-04 13:40:02 +0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /var/lib/gems/1.9.1/gems/railties-4.1.0/lib/rails/templates/rails/welcome/index.html.erb (0.2ms)
+Completed 200 OK in 36ms (Views: 34.3ms | ActiveRecord: 0.0ms)
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"   ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTwitt Load (0.2ms)[0m  [1mSELECT "twitts".* FROM "twitts"  WHERE "twitts"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "twitts" ("created_at", "twitt", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["created_at", "2014-10-04 06:46:43.813168"], ["twitt", "Ini pertama"], ["updated_at", "2014-10-04 06:46:43.813168"], ["user_id", 1]]
+  [1m[35m (150.2ms)[0m  commit transaction
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-04 13:47:26 +0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /var/lib/gems/1.9.1/gems/railties-4.1.0/lib/rails/templates/rails/welcome/index.html.erb (0.1ms)
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+  [1m[36mTwitt Load (16.0ms)[0m  [1mSELECT "twitts".* FROM "twitts"[0m
+  [1m[35mTwitt Load (0.5ms)[0m  SELECT "twitts".* FROM "twitts"
+  [1m[36mTwitt Load (29.2ms)[0m  [1mSELECT "twitts".* FROM "twitts"[0m
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-04 14:13:43 +0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /var/lib/gems/1.9.1/gems/railties-4.1.0/lib/rails/templates/rails/welcome/index.html.erb (0.2ms)
+Completed 200 OK in 50ms (Views: 49.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/twitts" for 127.0.0.1 at 2014-10-04 14:13:50 +0700
+Processing by TwittsController#index as HTML
+  [1m[35mTwitt Load (0.6ms)[0m  SELECT "twitts".* FROM "twitts"
+  Rendered twitts/index.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 123ms (Views: 117.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/twitts.css?body=1" for 127.0.0.1 at 2014-10-04 14:13:51 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-04 14:13:51 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-04 14:13:51 +0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-04 14:13:51 +0700
+
+
+Started GET "/assets/twitts.js?body=1" for 127.0.0.1 at 2014-10-04 14:13:51 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-04 14:13:51 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-04 14:13:51 +0700
+
+
+Started GET "/twitts" for 127.0.0.1 at 2014-10-04 14:15:13 +0700
+Processing by TwittsController#index as HTML
+  [1m[36mTwitt Load (0.2ms)[0m  [1mSELECT "twitts".* FROM "twitts"[0m
+  Rendered twitts/index.html.erb within layouts/application (3.2ms)
+Completed 500 Internal Server Error in 6ms
+
+ActionView::Template::Error (undefined method `user' for #<Twitt:0x000000036c6940>):
+    1: <ul>
+    2:   <% @twitts.each do |twitt| %>
+    3:     <li><%= twitt.twitt  %> by <%= twitt.user.email %></li>  
+    4:   <%end%>
+    5: </ul>
+  app/views/twitts/index.html.erb:3:in `block in _app_views_twitts_index_html_erb__2750143265540948811_28760200'
+  app/views/twitts/index.html.erb:2:in `_app_views_twitts_index_html_erb__2750143265540948811_28760200'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (17.6ms)
+
+
+Started GET "/twitts" for 127.0.0.1 at 2014-10-04 14:16:26 +0700
+Processing by TwittsController#index as HTML
+  [1m[35mTwitt Load (0.3ms)[0m  SELECT "twitts".* FROM "twitts"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered twitts/index.html.erb within layouts/application (63.0ms)
+Completed 200 OK in 138ms (Views: 88.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-04 14:16:26 +0700
+
+
+Started GET "/assets/twitts.js?body=1" for 127.0.0.1 at 2014-10-04 14:16:26 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-04 14:16:26 +0700
+
+
+Started GET "/assets/twitts.css?body=1" for 127.0.0.1 at 2014-10-04 14:16:26 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-04 14:16:26 +0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-04 14:16:26 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-04 14:16:26 +0700
+
+
+Started GET "/users" for 127.0.0.1 at 2014-10-04 14:17:23 +0700
+
+ActionController::RoutingError (No route matches [GET] "/users"):
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/methodoverride.rb:21:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/lock.rb:17:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/lock.rb:17:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/content_length.rb:14:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (25.2ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.1ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (126.7ms)
+
+
+Started GET "/twitts" for 127.0.0.1 at 2014-10-04 14:20:56 +0700
+Processing by TwittsController#index as HTML
+  [1m[35mTwitt Load (0.2ms)[0m  SELECT "twitts".* FROM "twitts"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered twitts/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 34ms (Views: 32.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-04 14:20:56 +0700
+
+
+Started GET "/assets/twitts.css?body=1" for 127.0.0.1 at 2014-10-04 14:20:56 +0700
+
+
+Started GET "/assets/twitts.js?body=1" for 127.0.0.1 at 2014-10-04 14:20:56 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-04 14:20:56 +0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-04 14:20:56 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-04 14:20:56 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-04 14:20:56 +0700
+
+
+Started GET "/twitts" for 127.0.0.1 at 2014-10-04 14:23:08 +0700
+Processing by TwittsController#index as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTwitt Load (0.2ms)[0m  [1mSELECT "twitts".* FROM "twitts"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered twitts/index.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 88ms (Views: 31.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-04 14:23:09 +0700
+
+
+Started GET "/assets/twitts.js?body=1" for 127.0.0.1 at 2014-10-04 14:23:09 +0700
+
+
+Started GET "/assets/twitts.css?body=1" for 127.0.0.1 at 2014-10-04 14:23:09 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-04 14:23:09 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-04 14:23:09 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-04 14:23:09 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-04 14:23:09 +0700
+
+
+Started GET "/twitts" for 127.0.0.1 at 2014-10-04 14:23:10 +0700
+Processing by TwittsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mTwitt Load (0.1ms)[0m  SELECT "twitts".* FROM "twitts"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered twitts/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 35ms (Views: 26.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/twitts.css?body=1" for 127.0.0.1 at 2014-10-04 14:23:11 +0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-04 14:23:11 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-04 14:23:11 +0700
+
+
+Started GET "/assets/twitts.js?body=1" for 127.0.0.1 at 2014-10-04 14:23:11 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-04 14:23:11 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-04 14:23:11 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-04 14:23:11 +0700
+
+
+Started GET "/twitts" for 127.0.0.1 at 2014-10-04 14:23:11 +0700
+Processing by TwittsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTwitt Load (0.1ms)[0m  [1mSELECT "twitts".* FROM "twitts"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered twitts/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 29ms (Views: 27.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-04 14:23:11 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-04 14:23:11 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-04 14:23:11 +0700
+
+
+Started GET "/assets/twitts.js?body=1" for 127.0.0.1 at 2014-10-04 14:23:11 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-04 14:23:11 +0700
+
+
+Started GET "/assets/twitts.css?body=1" for 127.0.0.1 at 2014-10-04 14:23:11 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-04 14:23:11 +0700
+
+
+Started GET "/twitts" for 127.0.0.1 at 2014-10-04 14:25:03 +0700
+Processing by TwittsController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mTwitt Load (0.2ms)[0m  SELECT "twitts".* FROM "twitts"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered twitts/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 62ms (Views: 54.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/twitts.css?body=1" for 127.0.0.1 at 2014-10-04 14:25:03 +0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-04 14:25:03 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-04 14:25:03 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-04 14:25:03 +0700
+
+
+Started GET "/assets/twitts.js?body=1" for 127.0.0.1 at 2014-10-04 14:25:03 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-04 14:25:03 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-04 14:25:03 +0700
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2014-10-04 14:25:08 +0700
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"oGQUS2htaZ2DX1/oHDn56iWQD8aibdY08w9rU4SAQms="}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 64ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-04 14:25:08 +0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /var/lib/gems/1.9.1/gems/railties-4.1.0/lib/rails/templates/rails/welcome/index.html.erb (0.1ms)
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-04 14:26:12 +0700
+Processing by TwittsController#index as HTML
+Completed 401 Unauthorized in 2ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2014-10-04 14:26:12 +0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered /var/lib/gems/1.9.1/gems/devise-3.3.0/app/views/devise/shared/_links.erb (0.5ms)
+  Rendered /var/lib/gems/1.9.1/gems/devise-3.3.0/app/views/devise/sessions/new.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 66ms (Views: 53.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/twitts.css?body=1" for 127.0.0.1 at 2014-10-04 14:26:13 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-04 14:26:13 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-04 14:26:13 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-04 14:26:13 +0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-04 14:26:13 +0700
+
+
+Started GET "/assets/twitts.js?body=1" for 127.0.0.1 at 2014-10-04 14:26:13 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-04 14:26:13 +0700
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2014-10-04 14:26:17 +0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered /var/lib/gems/1.9.1/gems/devise-3.3.0/app/views/devise/shared/_links.erb (0.6ms)
+  Rendered /var/lib/gems/1.9.1/gems/devise-3.3.0/app/views/devise/sessions/new.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 73ms (Views: 68.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-04 14:26:17 +0700
+
+
+Started GET "/assets/twitts.css?body=1" for 127.0.0.1 at 2014-10-04 14:26:17 +0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-04 14:26:17 +0700
+
+
+Started GET "/assets/twitts.js?body=1" for 127.0.0.1 at 2014-10-04 14:26:17 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-04 14:26:17 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-04 14:26:17 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-04 14:26:17 +0700
+
+
+Started GET "/twitts" for 127.0.0.1 at 2014-10-04 14:26:23 +0700
+Processing by TwittsController#index as HTML
+Completed 401 Unauthorized in 1ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2014-10-04 14:26:23 +0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered /var/lib/gems/1.9.1/gems/devise-3.3.0/app/views/devise/shared/_links.erb (0.4ms)
+  Rendered /var/lib/gems/1.9.1/gems/devise-3.3.0/app/views/devise/sessions/new.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 33ms (Views: 29.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/twitts.css?body=1" for 127.0.0.1 at 2014-10-04 14:26:24 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-04 14:26:24 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-04 14:26:24 +0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-04 14:26:24 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-04 14:26:24 +0700
+
+
+Started GET "/assets/twitts.js?body=1" for 127.0.0.1 at 2014-10-04 14:26:24 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-04 14:26:24 +0700
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2014-10-04 14:26:49 +0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XAS6wxsWmMDXnqnx9B+vO/QW8ciKUfhT/fhhCtwgXkw=", "user"=>{"email"=>"njbj@yahoo.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."email" = 'njbj@yahoo.com'  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "remember_created_at" = ?, "updated_at" = ? WHERE "users"."id" = 1[0m  [["remember_created_at", "2014-10-04 07:26:49.293610"], ["updated_at", "2014-10-04 07:26:49.294161"]]
+  [1m[35m (160.3ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  UPDATE "users" SET "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = 1  [["current_sign_in_at", "2014-10-04 07:26:49.479092"], ["sign_in_count", 2], ["updated_at", "2014-10-04 07:26:49.480862"]]
+  [1m[36m (173.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/twitts
+Completed 302 Found in 516ms (ActiveRecord: 335.1ms)
+
+
+Started GET "/twitts" for 127.0.0.1 at 2014-10-04 14:26:49 +0700
+Processing by TwittsController#index as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTwitt Load (0.2ms)[0m  [1mSELECT "twitts".* FROM "twitts"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered twitts/index.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 45ms (Views: 34.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-04 14:26:49 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-04 14:26:49 +0700
+
+
+Started GET "/assets/twitts.css?body=1" for 127.0.0.1 at 2014-10-04 14:26:49 +0700
+
+
+Started GET "/assets/twitts.js?body=1" for 127.0.0.1 at 2014-10-04 14:26:49 +0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-04 14:26:49 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-04 14:26:49 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-04 14:26:49 +0700
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2014-10-04 14:27:03 +0700
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"QtumnCw/OQA3rRB+6Lnc9sxV6CUi2xHeyzl6fubHqOc="}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mUPDATE "users" SET "remember_created_at" = ?, "updated_at" = ? WHERE "users"."id" = 1[0m  [["remember_created_at", nil], ["updated_at", "2014-10-04 07:27:03.434367"]]
+  [1m[35m (164.7ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 179ms (ActiveRecord: 166.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-04 14:27:03 +0700
+Processing by TwittsController#index as HTML
+Completed 401 Unauthorized in 1ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2014-10-04 14:27:03 +0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered /var/lib/gems/1.9.1/gems/devise-3.3.0/app/views/devise/shared/_links.erb (0.4ms)
+  Rendered /var/lib/gems/1.9.1/gems/devise-3.3.0/app/views/devise/sessions/new.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 68ms (Views: 64.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/twitts.css?body=1" for 127.0.0.1 at 2014-10-04 14:27:03 +0700
+
+
+Started GET "/assets/twitts.js?body=1" for 127.0.0.1 at 2014-10-04 14:27:03 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-04 14:27:03 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-04 14:27:03 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-04 14:27:03 +0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-04 14:27:03 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-04 14:27:03 +0700
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2014-10-04 14:27:06 +0700
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered /var/lib/gems/1.9.1/gems/devise-3.3.0/app/views/devise/shared/_links.erb (0.6ms)
+  Rendered /var/lib/gems/1.9.1/gems/devise-3.3.0/app/views/devise/registrations/new.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 64ms (Views: 62.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-10-04 14:27:21 +0700
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JcC8jZz+58wqr83Fhmwr35KIzmWp7gjm2h4lkFe0ZEw=", "user"=>{"email"=>"abcd@yahoo.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'abcd@yahoo.com' LIMIT 1
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "encrypted_password", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", "2014-10-04 07:27:21.963607"], ["email", "abcd@yahoo.com"], ["encrypted_password", "$2a$10$1IBC4ietvkMTfwtFQRji9uWKYMLSVNxdapXV707AiRlmC3DjaBmFq"], ["updated_at", "2014-10-04 07:27:21.963607"]]
+  [1m[35m (231.9ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+Binary data inserted for `string` type on column `current_sign_in_ip`
+Binary data inserted for `string` type on column `last_sign_in_ip`
+  [1m[35mSQL (0.5ms)[0m  UPDATE "users" SET "current_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_at" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = 2  [["current_sign_in_at", "2014-10-04 07:27:22.198711"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_at", "2014-10-04 07:27:22.198711"], ["last_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2014-10-04 07:27:22.200160"]]
+  [1m[36m (149.6ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 484ms (ActiveRecord: 382.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-04 14:27:22 +0700
+Processing by TwittsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTwitt Load (0.1ms)[0m  [1mSELECT "twitts".* FROM "twitts"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered twitts/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 29ms (Views: 27.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-04 14:27:22 +0700
+
+
+Started GET "/assets/twitts.css?body=1" for 127.0.0.1 at 2014-10-04 14:27:22 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-04 14:27:22 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-04 14:27:22 +0700
+
+
+Started GET "/assets/twitts.js?body=1" for 127.0.0.1 at 2014-10-04 14:27:22 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-04 14:27:22 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-04 14:27:22 +0700
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2014-10-04 14:27:27 +0700
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"JcC8jZz+58wqr83Fhmwr35KIzmWp7gjm2h4lkFe0ZEw="}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-04 14:27:27 +0700
+Processing by TwittsController#index as HTML
+Completed 401 Unauthorized in 1ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2014-10-04 14:27:27 +0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered /var/lib/gems/1.9.1/gems/devise-3.3.0/app/views/devise/shared/_links.erb (0.7ms)
+  Rendered /var/lib/gems/1.9.1/gems/devise-3.3.0/app/views/devise/sessions/new.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 38ms (Views: 36.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-04 14:27:27 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-04 14:27:27 +0700
+
+
+Started GET "/assets/twitts.js?body=1" for 127.0.0.1 at 2014-10-04 14:27:27 +0700
+
+
+Started GET "/assets/twitts.css?body=1" for 127.0.0.1 at 2014-10-04 14:27:27 +0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-04 14:27:27 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-04 14:27:27 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-04 14:27:27 +0700
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"   ORDER BY "users"."id" DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "twitts" ("created_at", "twitt", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["created_at", "2014-10-04 07:31:01.504090"], ["twitt", "ini yang kedua"], ["updated_at", "2014-10-04 07:31:01.504090"], ["user_id", 2]]
+  [1m[35m (166.9ms)[0m  commit transaction
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2014-10-04 14:31:26 +0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2KXt1AE8uqihuudFpBe2J86TKzR+G0h8EYIF2qYt5Mo=", "user"=>{"email"=>"njbj@yahoo.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."email" = 'njbj@yahoo.com'  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = 1  [["current_sign_in_at", "2014-10-04 07:31:26.329787"], ["last_sign_in_at", "2014-10-04 07:26:49.479092"], ["sign_in_count", 3], ["updated_at", "2014-10-04 07:31:26.330496"]]
+  [1m[36m (162.2ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 261ms (ActiveRecord: 162.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-04 14:31:26 +0700
+Processing by TwittsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTwitt Load (0.1ms)[0m  [1mSELECT "twitts".* FROM "twitts"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered twitts/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 30ms (Views: 28.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-04 14:31:26 +0700
+
+
+Started GET "/assets/twitts.js?body=1" for 127.0.0.1 at 2014-10-04 14:31:26 +0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-04 14:31:26 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-04 14:31:26 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-04 14:31:26 +0700
+
+
+Started GET "/assets/twitts.css?body=1" for 127.0.0.1 at 2014-10-04 14:31:26 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-04 14:31:26 +0700
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-04 14:32:00 +0700
+Processing by TwittsController#index as HTML
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTwitt Load (0.2ms)[0m  [1mSELECT "twitts".* FROM "twitts"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered twitts/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 49ms (Views: 38.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/twitts.css?body=1" for 127.0.0.1 at 2014-10-04 14:32:00 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-04 14:32:00 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-04 14:32:00 +0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-04 14:32:00 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-04 14:32:00 +0700
+
+
+Started GET "/assets/twitts.js?body=1" for 127.0.0.1 at 2014-10-04 14:32:00 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-04 14:32:00 +0700
+
+
+Started GET "/twitts" for 127.0.0.1 at 2014-10-04 14:32:02 +0700
+Processing by TwittsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTwitt Load (0.1ms)[0m  [1mSELECT "twitts".* FROM "twitts"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered twitts/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 58ms (Views: 55.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/twitts" for 127.0.0.1 at 2014-10-04 14:32:03 +0700
+Processing by TwittsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTwitt Load (0.3ms)[0m  [1mSELECT "twitts".* FROM "twitts"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered twitts/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 55ms (Views: 53.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/twitts" for 127.0.0.1 at 2014-10-04 14:32:03 +0700
+Processing by TwittsController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTwitt Load (0.4ms)[0m  [1mSELECT "twitts".* FROM "twitts"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered twitts/index.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 38ms (Views: 33.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/twitts" for 127.0.0.1 at 2014-10-04 14:32:04 +0700
+Processing by TwittsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTwitt Load (0.1ms)[0m  [1mSELECT "twitts".* FROM "twitts"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered twitts/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 53ms (Views: 51.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/twitts" for 127.0.0.1 at 2014-10-04 14:34:21 +0700
+Processing by TwittsController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTwitt Load (0.6ms)[0m  [1mSELECT "twitts".* FROM "twitts"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered twitts/index.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 39ms (Views: 35.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/twitts.css?body=1" for 127.0.0.1 at 2014-10-04 14:34:21 +0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-04 14:34:21 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-04 14:34:21 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-04 14:34:21 +0700
+
+
+Started GET "/assets/twitts.js?body=1" for 127.0.0.1 at 2014-10-04 14:34:21 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-04 14:34:21 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-04 14:34:21 +0700
+
+
+Started GET "/twitts/1" for 127.0.0.1 at 2014-10-04 14:34:23 +0700
+Processing by TwittsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+Completed 500 Internal Server Error in 8ms
+
+ActionView::MissingTemplate (Missing template twitts/show, application/show with {:locale=>[:en], :formats=>[:html, :xml], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee]}. Searched in:
+  * "/home/revi/Twitter/app/views"
+  * "/var/lib/gems/1.9.1/gems/devise-3.3.0/app/views"
+):
+  actionview (4.1.0) lib/action_view/path_set.rb:46:in `find'
+  actionview (4.1.0) lib/action_view/lookup_context.rb:124:in `find'
+  actionview (4.1.0) lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  actionview (4.1.0) lib/action_view/renderer/template_renderer.rb:41:in `determine_template'
+  actionview (4.1.0) lib/action_view/renderer/template_renderer.rb:8:in `render'
+  actionview (4.1.0) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.1.0) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.1.0) lib/action_view/rendering.rb:99:in `_render_template'
+  actionpack (4.1.0) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.1.0) lib/action_view/rendering.rb:82:in `render_to_body'
+  actionpack (4.1.0) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.1.0) lib/action_controller/metal/renderers.rb:32:in `render_to_body'
+  actionpack (4.1.0) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.1.0) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.1.0) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.1.0) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /usr/lib/ruby/1.9.1/benchmark.rb:295:in `realtime'
+  activesupport (4.1.0) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.1.0) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.1.0) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.1.0) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.1.0) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.1.0) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.1.0) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.1.0) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.1.0) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.1.0) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:113:in `call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:113:in `call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:229:in `call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:229:in `call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:166:in `call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:166:in `call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:166:in `call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:86:in `call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.0) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.1.0) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.0) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.0) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.1.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.1.0) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.1.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.0) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.1.0) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.1.0) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.1.0) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:676:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `catch'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/etag.rb:23:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/conditionalget.rb:25:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/head.rb:11:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/session/abstract/id.rb:225:in `context'
+  /usr/lib/ruby/vendor_ruby/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.0) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/methodoverride.rb:21:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/lock.rb:17:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/lock.rb:17:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/content_length.rb:14:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout (0.4ms)
+
+
+Started GET "/twitts/1" for 127.0.0.1 at 2014-10-04 14:34:23 +0700
+Processing by TwittsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 500 Internal Server Error in 3ms
+
+ActionView::MissingTemplate (Missing template twitts/show, application/show with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee]}. Searched in:
+  * "/home/revi/Twitter/app/views"
+  * "/var/lib/gems/1.9.1/gems/devise-3.3.0/app/views"
+):
+  actionview (4.1.0) lib/action_view/path_set.rb:46:in `find'
+  actionview (4.1.0) lib/action_view/lookup_context.rb:124:in `find'
+  actionview (4.1.0) lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  actionview (4.1.0) lib/action_view/renderer/template_renderer.rb:41:in `determine_template'
+  actionview (4.1.0) lib/action_view/renderer/template_renderer.rb:8:in `render'
+  actionview (4.1.0) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.1.0) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.1.0) lib/action_view/rendering.rb:99:in `_render_template'
+  actionpack (4.1.0) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.1.0) lib/action_view/rendering.rb:82:in `render_to_body'
+  actionpack (4.1.0) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.1.0) lib/action_controller/metal/renderers.rb:32:in `render_to_body'
+  actionpack (4.1.0) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.1.0) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.1.0) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.1.0) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /usr/lib/ruby/1.9.1/benchmark.rb:295:in `realtime'
+  activesupport (4.1.0) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.1.0) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.1.0) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.1.0) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.1.0) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.1.0) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.1.0) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.1.0) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.1.0) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.1.0) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:113:in `call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:113:in `call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:229:in `call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:229:in `call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:166:in `call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:166:in `call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:166:in `call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:86:in `call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.0) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.1.0) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.0) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.0) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.1.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.1.0) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.1.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.0) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.1.0) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.1.0) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.1.0) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:676:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `catch'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/etag.rb:23:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/conditionalget.rb:25:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/head.rb:11:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/session/abstract/id.rb:225:in `context'
+  /usr/lib/ruby/vendor_ruby/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.0) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/methodoverride.rb:21:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/lock.rb:17:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/lock.rb:17:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/content_length.rb:14:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout (0.6ms)
+
+
+Started GET "/twitts/1" for 127.0.0.1 at 2014-10-04 14:46:08 +0700
+Processing by TwittsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTwitt Load (0.1ms)[0m  [1mSELECT "twitts".* FROM "twitts"  WHERE "twitts"."user_id" = 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered twitts/index.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 79ms (Views: 37.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/twitts.css?body=1" for 127.0.0.1 at 2014-10-04 14:46:08 +0700
+
+
+Started GET "/assets/twitts.js?body=1" for 127.0.0.1 at 2014-10-04 14:46:08 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-04 14:46:08 +0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-04 14:46:08 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-04 14:46:08 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-04 14:46:08 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-04 14:46:08 +0700
+
+
+Started GET "/twitts/2" for 127.0.0.1 at 2014-10-04 14:46:16 +0700
+Processing by TwittsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mTwitt Load (0.6ms)[0m  SELECT "twitts".* FROM "twitts"  WHERE "twitts"."user_id" = 2
+  [1m[36mUser Load (21.9ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered twitts/index.html.erb within layouts/application (29.2ms)
+Completed 200 OK in 65ms (Views: 37.6ms | ActiveRecord: 23.1ms)
+
+
+Started GET "/twitts/1" for 127.0.0.1 at 2014-10-04 14:47:40 +0700
+Processing by TwittsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTwitt Load (0.1ms)[0m  [1mSELECT "twitts".* FROM "twitts"  WHERE "twitts"."user_id" = 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered twitts/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 56ms (Views: 54.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/twitts" for 127.0.0.1 at 2014-10-04 15:03:55 +0700
+
+ActionController::RoutingError (undefined local variable or method `exept' for TwittsController:Class):
+  app/controllers/twitts_controller.rb:3:in `<class:TwittsController>'
+  app/controllers/twitts_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.9ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.7ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (28.4ms)
+
+
+Started GET "/twitts" for 127.0.0.1 at 2014-10-04 15:04:25 +0700
+
+ActionController::RoutingError (undefined local variable or method `except' for TwittsController:Class):
+  app/controllers/twitts_controller.rb:3:in `<class:TwittsController>'
+  app/controllers/twitts_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (28.5ms)
+
+
+Started GET "/twitts" for 127.0.0.1 at 2014-10-04 15:04:54 +0700
+
+ActionController::RoutingError (undefined local variable or method `except' for TwittsController:Class):
+  app/controllers/twitts_controller.rb:3:in `<class:TwittsController>'
+  app/controllers/twitts_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.8ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.8ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (27.5ms)
+
+
+Started GET "/twitts" for 127.0.0.1 at 2014-10-04 15:05:35 +0700
+Processing by TwittsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 500 Internal Server Error in 15ms
+
+ArgumentError (wrong number of arguments (0 for 1)):
+  app/controllers/twitts_controller.rb:30:in `define_new_twitt'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (28.2ms)
+
+
+Started GET "/twitts" for 127.0.0.1 at 2014-10-04 15:06:14 +0700
+Processing by TwittsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered twitts/index.html.erb within layouts/application (0.6ms)
+Completed 500 Internal Server Error in 54ms
+
+SyntaxError (/home/revi/Twitter/app/views/twitts/index.html.erb:14: syntax error, unexpected keyword_ensure, expecting keyword_end
+/home/revi/Twitter/app/views/twitts/index.html.erb:16: syntax error, unexpected $end, expecting keyword_end):
+  actionview (4.1.0) lib/action_view/template.rb:297:in `module_eval'
+  actionview (4.1.0) lib/action_view/template.rb:297:in `compile'
+  actionview (4.1.0) lib/action_view/template.rb:245:in `block (2 levels) in compile!'
+  activesupport (4.1.0) lib/active_support/notifications.rb:161:in `instrument'
+  actionview (4.1.0) lib/action_view/template.rb:339:in `instrument'
+  actionview (4.1.0) lib/action_view/template.rb:244:in `block in compile!'
+  <internal:prelude>:10:in `synchronize'
+  actionview (4.1.0) lib/action_view/template.rb:232:in `compile!'
+  actionview (4.1.0) lib/action_view/template.rb:144:in `block in render'
+  activesupport (4.1.0) lib/active_support/notifications.rb:161:in `instrument'
+  actionview (4.1.0) lib/action_view/template.rb:339:in `instrument'
+  actionview (4.1.0) lib/action_view/template.rb:143:in `render'
+  actionview (4.1.0) lib/action_view/renderer/template_renderer.rb:55:in `block (2 levels) in render_template'
+  actionview (4.1.0) lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+  activesupport (4.1.0) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.0) lib/active_support/notifications.rb:159:in `instrument'
+  actionview (4.1.0) lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+  actionview (4.1.0) lib/action_view/renderer/template_renderer.rb:54:in `block in render_template'
+  actionview (4.1.0) lib/action_view/renderer/template_renderer.rb:62:in `render_with_layout'
+  actionview (4.1.0) lib/action_view/renderer/template_renderer.rb:53:in `render_template'
+  actionview (4.1.0) lib/action_view/renderer/template_renderer.rb:17:in `render'
+  actionview (4.1.0) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.1.0) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.1.0) lib/action_view/rendering.rb:99:in `_render_template'
+  actionpack (4.1.0) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.1.0) lib/action_view/rendering.rb:82:in `render_to_body'
+  actionpack (4.1.0) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.1.0) lib/action_controller/metal/renderers.rb:32:in `render_to_body'
+  actionpack (4.1.0) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.1.0) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.1.0) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.1.0) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /usr/lib/ruby/1.9.1/benchmark.rb:295:in `realtime'
+  activesupport (4.1.0) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.1.0) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.1.0) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.1.0) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.1.0) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.1.0) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.1.0) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.1.0) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.1.0) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.1.0) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:113:in `call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:113:in `call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:166:in `call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:229:in `call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:229:in `call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:166:in `call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:166:in `call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:166:in `call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:86:in `call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.0) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.1.0) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.0) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.0) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.1.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.1.0) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.1.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.0) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.1.0) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.1.0) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.1.0) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:676:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `catch'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/etag.rb:23:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/conditionalget.rb:25:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/head.rb:11:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/session/abstract/id.rb:225:in `context'
+  /usr/lib/ruby/vendor_ruby/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.0) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/methodoverride.rb:21:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/lock.rb:17:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/lock.rb:17:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/content_length.rb:14:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.3ms)
+
+
+Started GET "/twitts" for 127.0.0.1 at 2014-10-04 15:07:37 +0700
+Processing by TwittsController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mTwitt Load (0.2ms)[0m  SELECT "twitts".* FROM "twitts"
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered twitts/index.html.erb within layouts/application (50.6ms)
+Completed 200 OK in 109ms (Views: 101.4ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-04 15:07:37 +0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-04 15:07:37 +0700
+
+
+Started GET "/assets/twitts.js?body=1" for 127.0.0.1 at 2014-10-04 15:07:37 +0700
+
+
+Started GET "/assets/twitts.css?body=1" for 127.0.0.1 at 2014-10-04 15:07:37 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-04 15:07:37 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-04 15:07:37 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-04 15:07:37 +0700
+
+
+Started GET "/twitts" for 127.0.0.1 at 2014-10-04 15:08:00 +0700
+Processing by TwittsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mTwitt Load (0.3ms)[0m  SELECT "twitts".* FROM "twitts"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered twitts/index.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 41ms (Views: 35.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-04 15:08:00 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-04 15:08:00 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-04 15:08:00 +0700
+
+
+Started GET "/assets/twitts.css?body=1" for 127.0.0.1 at 2014-10-04 15:08:00 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-04 15:08:00 +0700
+
+
+Started GET "/assets/twitts.js?body=1" for 127.0.0.1 at 2014-10-04 15:08:00 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-04 15:08:00 +0700
+
+
+Started POST "/twitts" for 127.0.0.1 at 2014-10-04 15:08:08 +0700
+Processing by TwittsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kbtpLWaI4Zq8jOWWpAt/Tz6mcqXBb0ThBo2/xs8HSMg=", "twiit"=>{"twitt"=>"hahaha"}, "commit"=>"Save Twiit"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 500 Internal Server Error in 5ms
+
+ActionView::MissingTemplate (Missing template twitts/create, application/create with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee]}. Searched in:
+  * "/home/revi/Twitter/app/views"
+  * "/var/lib/gems/1.9.1/gems/devise-3.3.0/app/views"
+):
+  actionview (4.1.0) lib/action_view/path_set.rb:46:in `find'
+  actionview (4.1.0) lib/action_view/lookup_context.rb:124:in `find'
+  actionview (4.1.0) lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  actionview (4.1.0) lib/action_view/renderer/template_renderer.rb:41:in `determine_template'
+  actionview (4.1.0) lib/action_view/renderer/template_renderer.rb:8:in `render'
+  actionview (4.1.0) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.1.0) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.1.0) lib/action_view/rendering.rb:99:in `_render_template'
+  actionpack (4.1.0) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.1.0) lib/action_view/rendering.rb:82:in `render_to_body'
+  actionpack (4.1.0) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.1.0) lib/action_controller/metal/renderers.rb:32:in `render_to_body'
+  actionpack (4.1.0) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.1.0) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.1.0) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.1.0) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /usr/lib/ruby/1.9.1/benchmark.rb:295:in `realtime'
+  activesupport (4.1.0) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.1.0) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.1.0) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.1.0) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.1.0) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.1.0) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.1.0) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.1.0) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.1.0) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.1.0) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:113:in `call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:113:in `call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:166:in `call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:229:in `call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:229:in `call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:166:in `call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:166:in `call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:166:in `call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:86:in `call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.0) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.1.0) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.0) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.0) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.1.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.1.0) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.1.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.0) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.1.0) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.1.0) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.1.0) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:676:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `catch'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/etag.rb:23:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/conditionalget.rb:35:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/head.rb:11:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/session/abstract/id.rb:225:in `context'
+  /usr/lib/ruby/vendor_ruby/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.0) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/methodoverride.rb:21:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/lock.rb:17:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/lock.rb:17:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/content_length.rb:14:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout (0.4ms)
+
+
+Started POST "/twitts" for 127.0.0.1 at 2014-10-04 15:18:42 +0700
+Processing by TwittsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kbtpLWaI4Zq8jOWWpAt/Tz6mcqXBb0ThBo2/xs8HSMg=", "twiit"=>{"twitt"=>"hahaha"}, "commit"=>"Save Twiit"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "twitts" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2014-10-04 08:18:42.759248"], ["updated_at", "2014-10-04 08:18:42.759248"]]
+  [1m[36m (188.5ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/twitts/3
+Completed 302 Found in 228ms (ActiveRecord: 190.9ms)
+
+
+Started GET "/twitts/3" for 127.0.0.1 at 2014-10-04 15:18:42 +0700
+Processing by TwittsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTwitt Load (0.2ms)[0m  [1mSELECT "twitts".* FROM "twitts"  WHERE "twitts"."user_id" = 3[0m
+  Rendered twitts/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 59ms (Views: 56.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-04 15:18:43 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-04 15:18:43 +0700
+
+
+Started GET "/assets/twitts.css?body=1" for 127.0.0.1 at 2014-10-04 15:18:43 +0700
+
+
+Started GET "/assets/twitts.js?body=1" for 127.0.0.1 at 2014-10-04 15:18:43 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-04 15:18:43 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-04 15:18:43 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-04 15:18:43 +0700
+
+
+Started POST "/twitts/3" for 127.0.0.1 at 2014-10-04 15:18:55 +0700
+
+ActionController::RoutingError (No route matches [POST] "/twitts/3"):
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/methodoverride.rb:21:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/lock.rb:17:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/lock.rb:17:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/content_length.rb:14:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.7ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (21.7ms)
+
+
+Started GET "/twitts" for 127.0.0.1 at 2014-10-04 15:19:03 +0700
+Processing by TwittsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTwitt Load (0.1ms)[0m  [1mSELECT "twitts".* FROM "twitts"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered twitts/index.html.erb within layouts/application (3.1ms)
+Completed 500 Internal Server Error in 6ms
+
+ActionView::Template::Error (undefined method `email' for nil:NilClass):
+    1: <ul>
+    2:   <% @twitts.each do |twitt| %>
+    3:     <li><%= twitt.twitt  %> by <%= link_to twitt.user.email, twitt_path(twitt.id)%></li>  
+    4:   <%end%>
+    5: </ul>
+    6: 
+  app/views/twitts/index.html.erb:3:in `block in _app_views_twitts_index_html_erb__2750143265540948811_28386280'
+  app/views/twitts/index.html.erb:2:in `_app_views_twitts_index_html_erb__2750143265540948811_28386280'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (9.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-04 15:19:06 +0700
+Processing by TwittsController#index as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTwitt Load (0.5ms)[0m  [1mSELECT "twitts".* FROM "twitts"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered twitts/index.html.erb within layouts/application (4.7ms)
+Completed 500 Internal Server Error in 13ms
+
+ActionView::Template::Error (undefined method `email' for nil:NilClass):
+    1: <ul>
+    2:   <% @twitts.each do |twitt| %>
+    3:     <li><%= twitt.twitt  %> by <%= link_to twitt.user.email, twitt_path(twitt.id)%></li>  
+    4:   <%end%>
+    5: </ul>
+    6: 
+  app/views/twitts/index.html.erb:3:in `block in _app_views_twitts_index_html_erb__2750143265540948811_28386280'
+  app/views/twitts/index.html.erb:2:in `_app_views_twitts_index_html_erb__2750143265540948811_28386280'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (9.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-04 15:19:07 +0700
+Processing by TwittsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTwitt Load (0.1ms)[0m  [1mSELECT "twitts".* FROM "twitts"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered twitts/index.html.erb within layouts/application (2.6ms)
+Completed 500 Internal Server Error in 8ms
+
+ActionView::Template::Error (undefined method `email' for nil:NilClass):
+    1: <ul>
+    2:   <% @twitts.each do |twitt| %>
+    3:     <li><%= twitt.twitt  %> by <%= link_to twitt.user.email, twitt_path(twitt.id)%></li>  
+    4:   <%end%>
+    5: </ul>
+    6: 
+  app/views/twitts/index.html.erb:3:in `block in _app_views_twitts_index_html_erb__2750143265540948811_28386280'
+  app/views/twitts/index.html.erb:2:in `_app_views_twitts_index_html_erb__2750143265540948811_28386280'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (10.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-04 15:19:07 +0700
+Processing by TwittsController#index as HTML
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTwitt Load (0.1ms)[0m  [1mSELECT "twitts".* FROM "twitts"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered twitts/index.html.erb within layouts/application (3.2ms)
+Completed 500 Internal Server Error in 13ms
+
+ActionView::Template::Error (undefined method `email' for nil:NilClass):
+    1: <ul>
+    2:   <% @twitts.each do |twitt| %>
+    3:     <li><%= twitt.twitt  %> by <%= link_to twitt.user.email, twitt_path(twitt.id)%></li>  
+    4:   <%end%>
+    5: </ul>
+    6: 
+  app/views/twitts/index.html.erb:3:in `block in _app_views_twitts_index_html_erb__2750143265540948811_28386280'
+  app/views/twitts/index.html.erb:2:in `_app_views_twitts_index_html_erb__2750143265540948811_28386280'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (9.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-04 15:19:07 +0700
+Processing by TwittsController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTwitt Load (0.1ms)[0m  [1mSELECT "twitts".* FROM "twitts"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered twitts/index.html.erb within layouts/application (2.6ms)
+Completed 500 Internal Server Error in 12ms
+
+ActionView::Template::Error (undefined method `email' for nil:NilClass):
+    1: <ul>
+    2:   <% @twitts.each do |twitt| %>
+    3:     <li><%= twitt.twitt  %> by <%= link_to twitt.user.email, twitt_path(twitt.id)%></li>  
+    4:   <%end%>
+    5: </ul>
+    6: 
+  app/views/twitts/index.html.erb:3:in `block in _app_views_twitts_index_html_erb__2750143265540948811_28386280'
+  app/views/twitts/index.html.erb:2:in `_app_views_twitts_index_html_erb__2750143265540948811_28386280'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (9.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-04 15:19:07 +0700
+Processing by TwittsController#index as HTML
+  [1m[35mUser Load (1.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTwitt Load (0.2ms)[0m  [1mSELECT "twitts".* FROM "twitts"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered twitts/index.html.erb within layouts/application (3.8ms)
+Completed 500 Internal Server Error in 15ms
+
+ActionView::Template::Error (undefined method `email' for nil:NilClass):
+    1: <ul>
+    2:   <% @twitts.each do |twitt| %>
+    3:     <li><%= twitt.twitt  %> by <%= link_to twitt.user.email, twitt_path(twitt.id)%></li>  
+    4:   <%end%>
+    5: </ul>
+    6: 
+  app/views/twitts/index.html.erb:3:in `block in _app_views_twitts_index_html_erb__2750143265540948811_28386280'
+  app/views/twitts/index.html.erb:2:in `_app_views_twitts_index_html_erb__2750143265540948811_28386280'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (10.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-04 15:19:08 +0700
+Processing by TwittsController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTwitt Load (0.4ms)[0m  [1mSELECT "twitts".* FROM "twitts"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered twitts/index.html.erb within layouts/application (4.1ms)
+Completed 500 Internal Server Error in 14ms
+
+ActionView::Template::Error (undefined method `email' for nil:NilClass):
+    1: <ul>
+    2:   <% @twitts.each do |twitt| %>
+    3:     <li><%= twitt.twitt  %> by <%= link_to twitt.user.email, twitt_path(twitt.id)%></li>  
+    4:   <%end%>
+    5: </ul>
+    6: 
+  app/views/twitts/index.html.erb:3:in `block in _app_views_twitts_index_html_erb__2750143265540948811_28386280'
+  app/views/twitts/index.html.erb:2:in `_app_views_twitts_index_html_erb__2750143265540948811_28386280'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (24.8ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (34.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-04 15:19:08 +0700
+Processing by TwittsController#index as HTML
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTwitt Load (0.3ms)[0m  [1mSELECT "twitts".* FROM "twitts"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered twitts/index.html.erb within layouts/application (4.0ms)
+Completed 500 Internal Server Error in 12ms
+
+ActionView::Template::Error (undefined method `email' for nil:NilClass):
+    1: <ul>
+    2:   <% @twitts.each do |twitt| %>
+    3:     <li><%= twitt.twitt  %> by <%= link_to twitt.user.email, twitt_path(twitt.id)%></li>  
+    4:   <%end%>
+    5: </ul>
+    6: 
+  app/views/twitts/index.html.erb:3:in `block in _app_views_twitts_index_html_erb__2750143265540948811_28386280'
+  app/views/twitts/index.html.erb:2:in `_app_views_twitts_index_html_erb__2750143265540948811_28386280'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (9.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-04 15:19:08 +0700
+Processing by TwittsController#index as HTML
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTwitt Load (0.4ms)[0m  [1mSELECT "twitts".* FROM "twitts"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered twitts/index.html.erb within layouts/application (3.6ms)
+Completed 500 Internal Server Error in 12ms
+
+ActionView::Template::Error (undefined method `email' for nil:NilClass):
+    1: <ul>
+    2:   <% @twitts.each do |twitt| %>
+    3:     <li><%= twitt.twitt  %> by <%= link_to twitt.user.email, twitt_path(twitt.id)%></li>  
+    4:   <%end%>
+    5: </ul>
+    6: 
+  app/views/twitts/index.html.erb:3:in `block in _app_views_twitts_index_html_erb__2750143265540948811_28386280'
+  app/views/twitts/index.html.erb:2:in `_app_views_twitts_index_html_erb__2750143265540948811_28386280'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (10.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-04 15:19:08 +0700
+Processing by TwittsController#index as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTwitt Load (0.4ms)[0m  [1mSELECT "twitts".* FROM "twitts"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered twitts/index.html.erb within layouts/application (6.0ms)
+Completed 500 Internal Server Error in 17ms
+
+ActionView::Template::Error (undefined method `email' for nil:NilClass):
+    1: <ul>
+    2:   <% @twitts.each do |twitt| %>
+    3:     <li><%= twitt.twitt  %> by <%= link_to twitt.user.email, twitt_path(twitt.id)%></li>  
+    4:   <%end%>
+    5: </ul>
+    6: 
+  app/views/twitts/index.html.erb:3:in `block in _app_views_twitts_index_html_erb__2750143265540948811_28386280'
+  app/views/twitts/index.html.erb:2:in `_app_views_twitts_index_html_erb__2750143265540948811_28386280'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (9.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-04 15:19:09 +0700
+Processing by TwittsController#index as HTML
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTwitt Load (0.4ms)[0m  [1mSELECT "twitts".* FROM "twitts"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered twitts/index.html.erb within layouts/application (7.2ms)
+Completed 500 Internal Server Error in 19ms
+
+ActionView::Template::Error (undefined method `email' for nil:NilClass):
+    1: <ul>
+    2:   <% @twitts.each do |twitt| %>
+    3:     <li><%= twitt.twitt  %> by <%= link_to twitt.user.email, twitt_path(twitt.id)%></li>  
+    4:   <%end%>
+    5: </ul>
+    6: 
+  app/views/twitts/index.html.erb:3:in `block in _app_views_twitts_index_html_erb__2750143265540948811_28386280'
+  app/views/twitts/index.html.erb:2:in `_app_views_twitts_index_html_erb__2750143265540948811_28386280'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (8.4ms)
+
+
+Started GET "/twitts" for 127.0.0.1 at 2014-10-04 15:19:27 +0700
+Processing by TwittsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTwitt Load (0.3ms)[0m  [1mSELECT "twitts".* FROM "twitts"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered twitts/index.html.erb within layouts/application (3.4ms)
+Completed 500 Internal Server Error in 8ms
+
+ActionView::Template::Error (undefined method `email' for nil:NilClass):
+    1: <ul>
+    2:   <% @twitts.each do |twitt| %>
+    3:     <li><%= twitt.twitt  %> by <%= link_to twitt.user.email, twitt_path(twitt.id)%></li>  
+    4:   <%end%>
+    5: </ul>
+    6: 
+  app/views/twitts/index.html.erb:3:in `block in _app_views_twitts_index_html_erb__2750143265540948811_28386280'
+  app/views/twitts/index.html.erb:2:in `_app_views_twitts_index_html_erb__2750143265540948811_28386280'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (11.0ms)
+
+
+Started GET "/twitts" for 127.0.0.1 at 2014-10-04 15:20:01 +0700
+Processing by TwittsController#index as HTML
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTwitt Load (0.2ms)[0m  [1mSELECT "twitts".* FROM "twitts"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered twitts/index.html.erb within layouts/application (3.4ms)
+Completed 500 Internal Server Error in 14ms
+
+ActionView::Template::Error (undefined method `email' for nil:NilClass):
+    1: <ul>
+    2:   <% @twitts.each do |twitt| %>
+    3:     <li><%= twitt.twitt  %> by <%= link_to twitt.user.email, twitt_path(twitt.id)%></li>  
+    4:   <%end%>
+    5: </ul>
+    6: 
+  app/views/twitts/index.html.erb:3:in `block in _app_views_twitts_index_html_erb__2750143265540948811_28386280'
+  app/views/twitts/index.html.erb:2:in `_app_views_twitts_index_html_erb__2750143265540948811_28386280'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (9.5ms)
+
+
+Started GET "/twitts" for 127.0.0.1 at 2014-10-04 15:21:02 +0700
+Processing by TwittsController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTwitt Load (0.2ms)[0m  [1mSELECT "twitts".* FROM "twitts"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered twitts/index.html.erb within layouts/application (4.7ms)
+Completed 500 Internal Server Error in 15ms
+
+ActionView::Template::Error (undefined method `email' for nil:NilClass):
+    1: <ul>
+    2:   <% @twitts.each do |twitt| %>
+    3:     <li><%= twitt.twitt  %> by <%= link_to twitt.user.email, twitt_path(twitt.id)%></li>  
+    4:   <%end%>
+    5: </ul>
+    6: 
+  app/views/twitts/index.html.erb:3:in `block in _app_views_twitts_index_html_erb__2750143265540948811_26182060'
+  app/views/twitts/index.html.erb:2:in `_app_views_twitts_index_html_erb__2750143265540948811_26182060'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (9.3ms)
+
+
+Started GET "/twitts" for 127.0.0.1 at 2014-10-04 15:21:03 +0700
+Processing by TwittsController#index as HTML
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTwitt Load (0.2ms)[0m  [1mSELECT "twitts".* FROM "twitts"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered twitts/index.html.erb within layouts/application (3.4ms)
+Completed 500 Internal Server Error in 13ms
+
+ActionView::Template::Error (undefined method `email' for nil:NilClass):
+    1: <ul>
+    2:   <% @twitts.each do |twitt| %>
+    3:     <li><%= twitt.twitt  %> by <%= link_to twitt.user.email, twitt_path(twitt.id)%></li>  
+    4:   <%end%>
+    5: </ul>
+    6: 
+  app/views/twitts/index.html.erb:3:in `block in _app_views_twitts_index_html_erb__2750143265540948811_26182060'
+  app/views/twitts/index.html.erb:2:in `_app_views_twitts_index_html_erb__2750143265540948811_26182060'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (9.1ms)
+
+
+Started GET "/twitts" for 127.0.0.1 at 2014-10-04 15:21:03 +0700
+Processing by TwittsController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTwitt Load (0.4ms)[0m  [1mSELECT "twitts".* FROM "twitts"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered twitts/index.html.erb within layouts/application (6.1ms)
+Completed 500 Internal Server Error in 13ms
+
+ActionView::Template::Error (undefined method `email' for nil:NilClass):
+    1: <ul>
+    2:   <% @twitts.each do |twitt| %>
+    3:     <li><%= twitt.twitt  %> by <%= link_to twitt.user.email, twitt_path(twitt.id)%></li>  
+    4:   <%end%>
+    5: </ul>
+    6: 
+  app/views/twitts/index.html.erb:3:in `block in _app_views_twitts_index_html_erb__2750143265540948811_26182060'
+  app/views/twitts/index.html.erb:2:in `_app_views_twitts_index_html_erb__2750143265540948811_26182060'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (9.4ms)
+
+
+Started GET "/twitts" for 127.0.0.1 at 2014-10-04 15:21:04 +0700
+Processing by TwittsController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTwitt Load (0.6ms)[0m  [1mSELECT "twitts".* FROM "twitts"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered twitts/index.html.erb within layouts/application (5.5ms)
+Completed 500 Internal Server Error in 14ms
+
+ActionView::Template::Error (undefined method `email' for nil:NilClass):
+    1: <ul>
+    2:   <% @twitts.each do |twitt| %>
+    3:     <li><%= twitt.twitt  %> by <%= link_to twitt.user.email, twitt_path(twitt.id)%></li>  
+    4:   <%end%>
+    5: </ul>
+    6: 
+  app/views/twitts/index.html.erb:3:in `block in _app_views_twitts_index_html_erb__2750143265540948811_26182060'
+  app/views/twitts/index.html.erb:2:in `_app_views_twitts_index_html_erb__2750143265540948811_26182060'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (9.5ms)
+
+
+Started GET "/twitts" for 127.0.0.1 at 2014-10-04 15:21:04 +0700
+Processing by TwittsController#index as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTwitt Load (0.2ms)[0m  [1mSELECT "twitts".* FROM "twitts"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered twitts/index.html.erb within layouts/application (26.0ms)
+Completed 500 Internal Server Error in 36ms
+
+ActionView::Template::Error (undefined method `email' for nil:NilClass):
+    1: <ul>
+    2:   <% @twitts.each do |twitt| %>
+    3:     <li><%= twitt.twitt  %> by <%= link_to twitt.user.email, twitt_path(twitt.id)%></li>  
+    4:   <%end%>
+    5: </ul>
+    6: 
+  app/views/twitts/index.html.erb:3:in `block in _app_views_twitts_index_html_erb__2750143265540948811_26182060'
+  app/views/twitts/index.html.erb:2:in `_app_views_twitts_index_html_erb__2750143265540948811_26182060'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (8.9ms)
+
+
+Started GET "/twitts" for 127.0.0.1 at 2014-10-04 15:21:04 +0700
+Processing by TwittsController#index as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTwitt Load (0.1ms)[0m  [1mSELECT "twitts".* FROM "twitts"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered twitts/index.html.erb within layouts/application (3.0ms)
+Completed 500 Internal Server Error in 15ms
+
+ActionView::Template::Error (undefined method `email' for nil:NilClass):
+    1: <ul>
+    2:   <% @twitts.each do |twitt| %>
+    3:     <li><%= twitt.twitt  %> by <%= link_to twitt.user.email, twitt_path(twitt.id)%></li>  
+    4:   <%end%>
+    5: </ul>
+    6: 
+  app/views/twitts/index.html.erb:3:in `block in _app_views_twitts_index_html_erb__2750143265540948811_26182060'
+  app/views/twitts/index.html.erb:2:in `_app_views_twitts_index_html_erb__2750143265540948811_26182060'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (10.0ms)
+
+
+Started GET "/twitts" for 127.0.0.1 at 2014-10-04 15:21:04 +0700
+Processing by TwittsController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTwitt Load (0.2ms)[0m  [1mSELECT "twitts".* FROM "twitts"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered twitts/index.html.erb within layouts/application (2.9ms)
+Completed 500 Internal Server Error in 13ms
+
+ActionView::Template::Error (undefined method `email' for nil:NilClass):
+    1: <ul>
+    2:   <% @twitts.each do |twitt| %>
+    3:     <li><%= twitt.twitt  %> by <%= link_to twitt.user.email, twitt_path(twitt.id)%></li>  
+    4:   <%end%>
+    5: </ul>
+    6: 
+  app/views/twitts/index.html.erb:3:in `block in _app_views_twitts_index_html_erb__2750143265540948811_26182060'
+  app/views/twitts/index.html.erb:2:in `_app_views_twitts_index_html_erb__2750143265540948811_26182060'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (10.5ms)
+
+
+Started GET "/twitts" for 127.0.0.1 at 2014-10-04 15:21:05 +0700
+Processing by TwittsController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTwitt Load (0.1ms)[0m  [1mSELECT "twitts".* FROM "twitts"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered twitts/index.html.erb within layouts/application (3.5ms)
+Completed 500 Internal Server Error in 12ms
+
+ActionView::Template::Error (undefined method `email' for nil:NilClass):
+    1: <ul>
+    2:   <% @twitts.each do |twitt| %>
+    3:     <li><%= twitt.twitt  %> by <%= link_to twitt.user.email, twitt_path(twitt.id)%></li>  
+    4:   <%end%>
+    5: </ul>
+    6: 
+  app/views/twitts/index.html.erb:3:in `block in _app_views_twitts_index_html_erb__2750143265540948811_26182060'
+  app/views/twitts/index.html.erb:2:in `_app_views_twitts_index_html_erb__2750143265540948811_26182060'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (10.2ms)
+
+
+Started GET "/twitts" for 127.0.0.1 at 2014-10-04 15:21:55 +0700
+Processing by TwittsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTwitt Load (0.2ms)[0m  [1mSELECT "twitts".* FROM "twitts"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered twitts/index.html.erb within layouts/application (7.0ms)
+Completed 500 Internal Server Error in 26ms
+
+ActionView::Template::Error (undefined method `email' for nil:NilClass):
+    1: <ul>
+    2:   <% @twitts.each do |twitt| %>
+    3:     <li><%= twitt.twitt  %> by <%= link_to twitt.user.email, twitt_path(twitt.id)%></li>  
+    4:   <%end%>
+    5: </ul>
+    6: 
+  app/views/twitts/index.html.erb:3:in `block in _app_views_twitts_index_html_erb__2750143265540948811_26182060'
+  app/views/twitts/index.html.erb:2:in `_app_views_twitts_index_html_erb__2750143265540948811_26182060'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (8.3ms)
+
+
+Started GET "/twitts" for 127.0.0.1 at 2014-10-04 15:21:55 +0700
+Processing by TwittsController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTwitt Load (0.6ms)[0m  [1mSELECT "twitts".* FROM "twitts"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered twitts/index.html.erb within layouts/application (8.9ms)
+Completed 500 Internal Server Error in 16ms
+
+ActionView::Template::Error (undefined method `email' for nil:NilClass):
+    1: <ul>
+    2:   <% @twitts.each do |twitt| %>
+    3:     <li><%= twitt.twitt  %> by <%= link_to twitt.user.email, twitt_path(twitt.id)%></li>  
+    4:   <%end%>
+    5: </ul>
+    6: 
+  app/views/twitts/index.html.erb:3:in `block in _app_views_twitts_index_html_erb__2750143265540948811_26182060'
+  app/views/twitts/index.html.erb:2:in `_app_views_twitts_index_html_erb__2750143265540948811_26182060'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (9.8ms)
+
+
+Started GET "/twitts" for 127.0.0.1 at 2014-10-04 15:21:56 +0700
+Processing by TwittsController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTwitt Load (0.7ms)[0m  [1mSELECT "twitts".* FROM "twitts"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered twitts/index.html.erb within layouts/application (9.1ms)
+Completed 500 Internal Server Error in 19ms
+
+ActionView::Template::Error (undefined method `email' for nil:NilClass):
+    1: <ul>
+    2:   <% @twitts.each do |twitt| %>
+    3:     <li><%= twitt.twitt  %> by <%= link_to twitt.user.email, twitt_path(twitt.id)%></li>  
+    4:   <%end%>
+    5: </ul>
+    6: 
+  app/views/twitts/index.html.erb:3:in `block in _app_views_twitts_index_html_erb__2750143265540948811_26182060'
+  app/views/twitts/index.html.erb:2:in `_app_views_twitts_index_html_erb__2750143265540948811_26182060'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (10.8ms)
+
+
+Started GET "/twitts" for 127.0.0.1 at 2014-10-04 15:21:56 +0700
+Processing by TwittsController#index as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTwitt Load (0.1ms)[0m  [1mSELECT "twitts".* FROM "twitts"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered twitts/index.html.erb within layouts/application (2.9ms)
+Completed 500 Internal Server Error in 12ms
+
+ActionView::Template::Error (undefined method `email' for nil:NilClass):
+    1: <ul>
+    2:   <% @twitts.each do |twitt| %>
+    3:     <li><%= twitt.twitt  %> by <%= link_to twitt.user.email, twitt_path(twitt.id)%></li>  
+    4:   <%end%>
+    5: </ul>
+    6: 
+  app/views/twitts/index.html.erb:3:in `block in _app_views_twitts_index_html_erb__2750143265540948811_26182060'
+  app/views/twitts/index.html.erb:2:in `_app_views_twitts_index_html_erb__2750143265540948811_26182060'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (9.2ms)
+
+
+Started GET "/twitts" for 127.0.0.1 at 2014-10-04 15:22:12 +0700
+Processing by TwittsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTwitt Load (0.1ms)[0m  [1mSELECT "twitts".* FROM "twitts"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered twitts/index.html.erb within layouts/application (7.3ms)
+Completed 500 Internal Server Error in 26ms
+
+ActionView::Template::Error (undefined method `email' for nil:NilClass):
+    1: <ul>
+    2:   <% @twitts.each do |twitt| %>
+    3:     <li><%= twitt.twitt  %> by <%= link_to twitt.user.email, twitt_path(twitt.id)%></li>  
+    4:   <%end%>
+    5: </ul>
+    6: 
+  app/views/twitts/index.html.erb:3:in `block in _app_views_twitts_index_html_erb__2750143265540948811_26182060'
+  app/views/twitts/index.html.erb:2:in `_app_views_twitts_index_html_erb__2750143265540948811_26182060'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (9.6ms)
+
+
+Started GET "/twitts" for 127.0.0.1 at 2014-10-04 15:22:35 +0700
+Processing by TwittsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTwitt Load (0.2ms)[0m  [1mSELECT "twitts".* FROM "twitts"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered twitts/index.html.erb within layouts/application (4.2ms)
+Completed 500 Internal Server Error in 8ms
+
+ActionView::Template::Error (undefined method `email' for nil:NilClass):
+    1: <ul>
+    2:   <% @twitts.each do |twitt| %>
+    3:     <li><%= twitt.twitt  %> by <%= link_to twitt.user.email, twitt_path(twitt.id)%></li>  
+    4:   <%end%>
+    5: </ul>
+    6: 
+  app/views/twitts/index.html.erb:3:in `block in _app_views_twitts_index_html_erb__2750143265540948811_26182060'
+  app/views/twitts/index.html.erb:2:in `_app_views_twitts_index_html_erb__2750143265540948811_26182060'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (10.4ms)
+  [1m[36mTwitt Load (1.5ms)[0m  [1mSELECT "twitts".* FROM "twitts"[0m
+  [1m[35mTwitt Load (0.5ms)[0m  SELECT  "twitts".* FROM "twitts"   ORDER BY "twitts"."id" DESC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "twitts" WHERE "twitts"."id" = ?  [["id", 3]]
+  [1m[36m (157.8ms)[0m  [1mcommit transaction[0m
+
+
+Started GET "/twitts" for 127.0.0.1 at 2014-10-04 15:23:57 +0700
+Processing by TwittsController#index as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTwitt Load (0.2ms)[0m  [1mSELECT "twitts".* FROM "twitts"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered twitts/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 81ms (Views: 74.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-04 15:23:57 +0700
+
+
+Started GET "/assets/twitts.js?body=1" for 127.0.0.1 at 2014-10-04 15:23:57 +0700
+
+
+Started GET "/assets/twitts.css?body=1" for 127.0.0.1 at 2014-10-04 15:23:57 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-04 15:23:57 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-04 15:23:57 +0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-04 15:23:57 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-04 15:23:57 +0700
+
+
+Started GET "/twitts" for 127.0.0.1 at 2014-10-04 15:25:50 +0700
+Processing by TwittsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTwitt Load (0.1ms)[0m  [1mSELECT "twitts".* FROM "twitts"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered twitts/index.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 73ms (Views: 56.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/twitts.css?body=1" for 127.0.0.1 at 2014-10-04 15:25:50 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-04 15:25:50 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-04 15:25:50 +0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-04 15:25:50 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-04 15:25:50 +0700
+
+
+Started GET "/assets/twitts.js?body=1" for 127.0.0.1 at 2014-10-04 15:25:50 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-04 15:25:50 +0700
+
+
+Started POST "/twitts" for 127.0.0.1 at 2014-10-04 15:26:00 +0700
+Processing by TwittsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kbtpLWaI4Zq8jOWWpAt/Tz6mcqXBb0ThBo2/xs8HSMg=", "twitt"=>{"twitt"=>"baru broooww!!\r\n"}, "commit"=>"Save Twitt"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+Completed 500 Internal Server Error in 44ms
+
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  app/controllers/twitts_controller.rb:10:in `create'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.8ms)
+
+
+Started POST "/twitts" for 127.0.0.1 at 2014-10-04 15:26:25 +0700
+Processing by TwittsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kbtpLWaI4Zq8jOWWpAt/Tz6mcqXBb0ThBo2/xs8HSMg=", "twitt"=>{"twitt"=>"baru broooww!!\r\n"}, "commit"=>"Save Twitt"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 500 Internal Server Error in 20ms
+
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  app/controllers/twitts_controller.rb:10:in `create'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.7ms)
+
+
+Started POST "/twitts" for 127.0.0.1 at 2014-10-04 15:28:12 +0700
+Processing by TwittsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kbtpLWaI4Zq8jOWWpAt/Tz6mcqXBb0ThBo2/xs8HSMg=", "twitt"=>{"twitt"=>"baru broooww!!\r\n"}, "commit"=>"Save Twitt"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+Completed 500 Internal Server Error in 19ms
+
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  app/controllers/twitts_controller.rb:10:in `create'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.6ms)
+
+
+Started POST "/twitts" for 127.0.0.1 at 2014-10-04 15:28:31 +0700
+Processing by TwittsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kbtpLWaI4Zq8jOWWpAt/Tz6mcqXBb0ThBo2/xs8HSMg=", "twitt"=>{"twitt"=>"baru broooww!!"}, "commit"=>"Save Twitt"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 500 Internal Server Error in 2ms
+
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  app/controllers/twitts_controller.rb:10:in `create'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.6ms)
+
+
+Started POST "/twitts" for 127.0.0.1 at 2014-10-04 15:31:33 +0700
+Processing by TwittsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kbtpLWaI4Zq8jOWWpAt/Tz6mcqXBb0ThBo2/xs8HSMg=", "twitt"=>{"twitt"=>"baru broooww!!"}, "commit"=>"Save Twitt"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+Completed 500 Internal Server Error in 49ms
+
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  app/controllers/twitts_controller.rb:10:in `create'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.7ms)
+
+
+Started POST "/twitts" for 127.0.0.1 at 2014-10-04 15:32:19 +0700
+Processing by TwittsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kbtpLWaI4Zq8jOWWpAt/Tz6mcqXBb0ThBo2/xs8HSMg=", "twitt"=>{"twitt"=>"baru broooww!!"}, "commit"=>"Save Twitt"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+Unpermitted parameters: utf8, authenticity_token, twitt, commit
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "twitts" ("created_at", "updated_at", "user_id") VALUES (?, ?, ?)[0m  [["created_at", "2014-10-04 08:32:19.967844"], ["updated_at", "2014-10-04 08:32:19.967844"], ["user_id", 1]]
+  [1m[35m (170.4ms)[0m  commit transaction
+Redirected to http://localhost:3000/twitts/4
+Completed 302 Found in 197ms (ActiveRecord: 172.3ms)
+
+
+Started GET "/twitts/4" for 127.0.0.1 at 2014-10-04 15:32:20 +0700
+Processing by TwittsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mTwitt Load (0.1ms)[0m  SELECT "twitts".* FROM "twitts"  WHERE "twitts"."user_id" = 4
+  Rendered twitts/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 52ms (Views: 48.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/twitts.css?body=1" for 127.0.0.1 at 2014-10-04 15:32:20 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-04 15:32:20 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-04 15:32:20 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-04 15:32:20 +0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-04 15:32:20 +0700
+
+
+Started GET "/assets/twitts.js?body=1" for 127.0.0.1 at 2014-10-04 15:32:20 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-04 15:32:20 +0700
+
+
+Started GET "/twitts" for 127.0.0.1 at 2014-10-04 15:32:25 +0700
+Processing by TwittsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mTwitt Load (0.1ms)[0m  SELECT "twitts".* FROM "twitts"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered twitts/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 38ms (Views: 35.1ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/twitts" for 127.0.0.1 at 2014-10-04 15:32:28 +0700
+Processing by TwittsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kbtpLWaI4Zq8jOWWpAt/Tz6mcqXBb0ThBo2/xs8HSMg=", "twitt"=>{"twitt"=>"baru broooww!!"}, "commit"=>"Save Twitt"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+Unpermitted parameters: utf8, authenticity_token, twitt, commit
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "twitts" ("created_at", "updated_at", "user_id") VALUES (?, ?, ?)  [["created_at", "2014-10-04 08:32:28.941337"], ["updated_at", "2014-10-04 08:32:28.941337"], ["user_id", 1]]
+  [1m[36m (165.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/twitts/5
+Completed 302 Found in 169ms (ActiveRecord: 165.4ms)
+
+
+Started GET "/twitts/5" for 127.0.0.1 at 2014-10-04 15:32:29 +0700
+Processing by TwittsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTwitt Load (0.1ms)[0m  [1mSELECT "twitts".* FROM "twitts"  WHERE "twitts"."user_id" = 5[0m
+  Rendered twitts/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 31ms (Views: 29.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-04 15:32:29 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-04 15:32:29 +0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-04 15:32:29 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-04 15:32:29 +0700
+
+
+Started GET "/assets/twitts.js?body=1" for 127.0.0.1 at 2014-10-04 15:32:29 +0700
+
+
+Started GET "/assets/twitts.css?body=1" for 127.0.0.1 at 2014-10-04 15:32:29 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-04 15:32:29 +0700
+
+
+Started GET "/twitts" for 127.0.0.1 at 2014-10-04 15:32:30 +0700
+Processing by TwittsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTwitt Load (0.1ms)[0m  [1mSELECT "twitts".* FROM "twitts"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered twitts/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 60ms (Views: 57.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/twitts" for 127.0.0.1 at 2014-10-04 15:33:11 +0700
+Processing by TwittsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTwitt Load (0.2ms)[0m  [1mSELECT "twitts".* FROM "twitts"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered twitts/index.html.erb within layouts/application (35.1ms)
+Completed 200 OK in 76ms (Views: 59.3ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/twitts.css?body=1" for 127.0.0.1 at 2014-10-04 15:33:11 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-04 15:33:11 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-04 15:33:11 +0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-04 15:33:11 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-04 15:33:11 +0700
+
+
+Started GET "/assets/twitts.js?body=1" for 127.0.0.1 at 2014-10-04 15:33:11 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-04 15:33:11 +0700
+
+
+Started POST "/twitts" for 127.0.0.1 at 2014-10-04 15:33:17 +0700
+Processing by TwittsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kbtpLWaI4Zq8jOWWpAt/Tz6mcqXBb0ThBo2/xs8HSMg=", "twitt"=>{"twitt"=>"ifviwfvd"}, "commit"=>"Save Twitt"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+Unpermitted parameters: utf8, authenticity_token, twitt, commit
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "twitts" ("created_at", "updated_at", "user_id") VALUES (?, ?, ?)  [["created_at", "2014-10-04 08:33:17.828288"], ["updated_at", "2014-10-04 08:33:17.828288"], ["user_id", 1]]
+  [1m[36m (162.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/twitts
+Completed 302 Found in 170ms (ActiveRecord: 163.1ms)
+
+
+Started GET "/twitts" for 127.0.0.1 at 2014-10-04 15:33:17 +0700
+Processing by TwittsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTwitt Load (0.1ms)[0m  [1mSELECT "twitts".* FROM "twitts"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered twitts/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 61ms (Views: 58.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/twitts.css?body=1" for 127.0.0.1 at 2014-10-04 15:33:18 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-04 15:33:18 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-04 15:33:18 +0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-04 15:33:18 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-04 15:33:18 +0700
+
+
+Started GET "/assets/twitts.js?body=1" for 127.0.0.1 at 2014-10-04 15:33:18 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-04 15:33:18 +0700
+
+
+Started GET "/twitts" for 127.0.0.1 at 2014-10-04 15:37:08 +0700
+Processing by TwittsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mTwitt Load (0.1ms)[0m  SELECT "twitts".* FROM "twitts"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered twitts/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 55ms (Views: 36.6ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/twitts.css?body=1" for 127.0.0.1 at 2014-10-04 15:37:08 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-04 15:37:08 +0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-04 15:37:08 +0700
+
+
+Started GET "/assets/twitts.js?body=1" for 127.0.0.1 at 2014-10-04 15:37:09 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-04 15:37:09 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-04 15:37:09 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-04 15:37:09 +0700
+
+
+Started POST "/twitts" for 127.0.0.1 at 2014-10-04 15:37:13 +0700
+Processing by TwittsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kbtpLWaI4Zq8jOWWpAt/Tz6mcqXBb0ThBo2/xs8HSMg=", "twitt"=>{"twitt"=>"jbb"}, "commit"=>"Save Twitt"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "twitts" ("created_at", "twitt", "updated_at", "user_id") VALUES (?, ?, ?, ?)  [["created_at", "2014-10-04 08:37:13.432511"], ["twitt", "jbb"], ["updated_at", "2014-10-04 08:37:13.432511"], ["user_id", 1]]
+  [1m[36m (165.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/twitts
+Completed 302 Found in 173ms (ActiveRecord: 165.8ms)
+
+
+Started GET "/twitts" for 127.0.0.1 at 2014-10-04 15:37:13 +0700
+Processing by TwittsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTwitt Load (0.4ms)[0m  [1mSELECT "twitts".* FROM "twitts"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered twitts/index.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 35ms (Views: 32.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/twitts.css?body=1" for 127.0.0.1 at 2014-10-04 15:37:13 +0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-04 15:37:13 +0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-04 15:37:13 +0700
+
+
+Started GET "/assets/twitts.js?body=1" for 127.0.0.1 at 2014-10-04 15:37:13 +0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-04 15:37:13 +0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-04 15:37:13 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-04 15:37:13 +0700
+
+
+Started GET "/twitts/7" for 127.0.0.1 at 2014-10-04 15:37:19 +0700
+Processing by TwittsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTwitt Load (0.1ms)[0m  [1mSELECT "twitts".* FROM "twitts"  WHERE "twitts"."user_id" = 7[0m
+  Rendered twitts/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 33ms (Views: 30.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/twitts/6" for 127.0.0.1 at 2014-10-04 15:37:23 +0700
+Processing by TwittsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTwitt Load (0.1ms)[0m  [1mSELECT "twitts".* FROM "twitts"  WHERE "twitts"."user_id" = 6[0m
+  Rendered twitts/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 53ms (Views: 50.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/twitts/5" for 127.0.0.1 at 2014-10-04 15:37:31 +0700
+Processing by TwittsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTwitt Load (0.1ms)[0m  [1mSELECT "twitts".* FROM "twitts"  WHERE "twitts"."user_id" = 5[0m
+  Rendered twitts/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 30ms (Views: 28.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/twitts/4" for 127.0.0.1 at 2014-10-04 15:37:36 +0700
+Processing by TwittsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTwitt Load (0.1ms)[0m  [1mSELECT "twitts".* FROM "twitts"  WHERE "twitts"."user_id" = 4[0m
+  Rendered twitts/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 54ms (Views: 50.9ms | ActiveRecord: 0.3ms)
